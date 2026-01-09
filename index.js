@@ -33,3 +33,31 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server çalışıyor");
 });
+const { Client, GatewayIntentBits } = require("discord.js");
+
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent
+  ]
+});
+
+const DISCORD_TOKEN = "MTQ1OTA4NTU4NTA3ODgxMjcwMg.GkHdmu.9nEaXlvJfcw-ZFhvOM3Mpxe0D-NjONHw2OUd7c";
+const TARGET_CHANNEL_ID = "1459086392478142550";
+
+client.on("messageCreate", async (message) => {
+  if (message.author.bot) return;
+  if (message.channel.id !== TARGET_CHANNEL_ID) return;
+
+  fetch("https://https://discord-roblox-chat.onrender.com/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      username: message.author.username,
+      content: message.content
+    })
+  });
+});
+
+client.login(DISCORD_TOKEN);
