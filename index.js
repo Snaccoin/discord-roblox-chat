@@ -44,7 +44,7 @@ const client = new Client({
 });
 
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
-const TARGET_CHANNEL_ID = "1459086392478142550";
+const TARGET_CHANNEL_ID = process.env.TARGET_CHANNEL_ID;
 
 client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
