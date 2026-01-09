@@ -43,7 +43,7 @@ const client = new Client({
   ]
 });
 
-const DISCORD_TOKEN = "MTQ1OTA4NTU4NTA3ODgxMjcwMg.GyCv12._5tZUtKYbRBm20jYUWkXMSOnwMPsITkMgTBJXI";
+const DISCORD_TOKEN = "MTQ1OTA4NTU4NTA3ODgxMjcwMg.GZnVI_.lWw0gekV3iJEEpemuNjTTGAvJrl2nU-NJXWlTQ";
 const TARGET_CHANNEL_ID = "1459086392478142550";
 
 client.on("messageCreate", async (message) => {
